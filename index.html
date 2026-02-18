@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beleza Urbana | Gramado</title>
+    <meta name="description" content="Espaço de beleza em Gramado focado em diversidade, autoestima e quebra de padrões." />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Montserrat', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                pink: '#E14E72',
+                cyan: '#39ADDD',
+                purple: '#8303AF',
+                yellow: '#F4CD79',
+                dark: '#0F0518', // Deep dark purple/black background
+                darker: '#08020D',
+              }
+            },
+            backgroundImage: {
+              'urban-gradient': 'linear-gradient(135deg, #8303AF 0%, #E14E72 50%, #F4CD79 100%)',
+              'urban-mesh': 'radial-gradient(at 0% 0%, hsla(293,70%,35%,1) 0, transparent 50%), radial-gradient(at 100% 0%, hsla(339,72%,60%,1) 0, transparent 50%), radial-gradient(at 100% 100%, hsla(197,71%,55%,1) 0, transparent 50%);',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Smooth Scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #08020D; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #E14E72; 
+      }
+      
+      .text-outline {
+        -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+        color: transparent;
+      }
+
+      /* Utility to hide scrollbar but keep functionality */
+      .scrollbar-hide {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0-rc-66855b96-20241106",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0-rc-66855b96-20241106/client",
+    "framer-motion": "https://esm.sh/framer-motion@11.11.11?deps=react@19.0.0-rc-66855b96-20241106,react-dom@19.0.0-rc-66855b96-20241106",
+    "lucide-react": "https://esm.sh/lucide-react@0.454.0?deps=react@19.0.0-rc-66855b96-20241106",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
+</head>
+  <body class="bg-brand-dark text-white antialiased selection:bg-brand-cyan selection:text-black">
+    <div id="root"></div>
+  </body>
+</html>
