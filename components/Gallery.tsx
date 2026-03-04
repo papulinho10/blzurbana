@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Camera } from 'lucide-react';
+import { Sparkles, Camera, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Fotos dos Trabalhos (Cabelo, Make, Unhas)
 const workImages = [
@@ -25,8 +25,44 @@ type TabType = 'environment' | 'works';
 
 const Gallery: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('works');
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
   const imagesToDisplay = activeTab === 'works' ? workImages : environmentImages;
+
+  const handleImageClick = (index: number) => {
+    setSelectedImageIndex(index);
+  };
+
+  const handleCloseLightbox = () => {
+    setSelectedImageIndex(null);
+  };
+
+  const handleNextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((prev) => (prev === null ? null : (prev + 1) % imagesToDisplay.length));
+    }
+  };
+
+  const handlePrevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((prev) => (prev === null ? null : (prev - 1 + imagesToDisplay.length) % imagesToDisplay.length));
+    }
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedImageIndex === null) return;
+      if (e.key === 'Escape') handleCloseLightbox();
+      if (e.key === 'ArrowRight') setSelectedImageIndex((prev) => (prev === null ? null : (prev + 1) % imagesToDisplay.length));
+      if (e.key === 'ArrowLeft') setSelectedImageIndex((prev) => (prev === null ? null : (prev - 1 + imagesToDisplay.length) % imagesToDisplay.length));
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImageIndex, imagesToDisplay.length]);
 
   // Variantes para o efeito de pulsar e revelar cor
   const imageCardVariants = {
@@ -104,7 +140,10 @@ const Gallery: React.FC = () => {
             }`}
           >
             <span className="skew-x-[10deg] inline-flex items-center gap-2">
-              <Camera size={18} /> Ambiente
+              <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
+                <Camera size={18} /> 
+              </motion.div>
+              Ambiente
             </span>
           </button>
 
@@ -117,7 +156,10 @@ const Gallery: React.FC = () => {
             }`}
           >
             <span className="skew-x-[10deg] inline-flex items-center gap-2">
-              <Sparkles size={18} /> Trabalhos
+              <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
+                <Sparkles size={18} /> 
+              </motion.div>
+              Trabalhos
             </span>
           </button>
         </div>
@@ -132,6 +174,7 @@ const Gallery: React.FC = () => {
               <motion.div
                 layout
                 key={`${activeTab}-${index}`} // Chave única
+                onClick={() => handleImageClick(index)}
                 
                 // Configuração de animação
                 variants={imageCardVariants}
@@ -147,7 +190,7 @@ const Gallery: React.FC = () => {
                     margin: "0px 0px -100px 0px"
                 }}
                 
-                className="break-inside-avoid relative group overflow-hidden border-2 border-transparent transition-all rounded-sm bg-[#1a1a1a]"
+                className="break-inside-avoid relative group overflow-hidden border-2 border-transparent transition-all rounded-sm bg-[#1a1a1a] cursor-pointer"
               >
                 <img 
                   src={src} 
@@ -169,6 +212,52 @@ const Gallery: React.FC = () => {
         </motion.div>
 
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImageIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
+            onClick={handleCloseLightbox}
+          >
+            <button
+              className="absolute top-6 right-6 text-white hover:text-brand-pink transition-colors z-50"
+              onClick={handleCloseLightbox}
+            >
+              <X size={40} />
+            </button>
+
+            <button
+              className="absolute left-4 md:left-8 text-white hover:text-brand-cyan transition-colors z-50 p-2 bg-black/20 rounded-full hover:bg-black/50"
+              onClick={handlePrevImage}
+            >
+              <ChevronLeft size={40} />
+            </button>
+
+            <motion.img
+              key={selectedImageIndex}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              src={imagesToDisplay[selectedImageIndex]}
+              alt="Full screen view"
+              className="max-w-full max-h-[90vh] object-contain rounded-sm shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+
+            <button
+              className="absolute right-4 md:right-8 text-white hover:text-brand-cyan transition-colors z-50 p-2 bg-black/20 rounded-full hover:bg-black/50"
+              onClick={handleNextImage}
+            >
+              <ChevronRight size={40} />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

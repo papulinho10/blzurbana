@@ -5,7 +5,7 @@ import { WHATSAPP_LINK, INSTAGRAM_LINK, GOOGLE_MAPS_LINK, ADDRESS } from '../con
 
 const ContactStrip: React.FC = () => {
   return (
-    <section className="bg-brand-dark py-16 border-t border-b border-white/10 relative overflow-hidden">
+    <section id="contato" className="bg-brand-dark py-16 border-t border-b border-white/10 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-64 h-64 bg-brand-cyan/5 rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-6">
@@ -20,7 +20,12 @@ const ContactStrip: React.FC = () => {
             className="group bg-[#150a1f] p-8 border border-white/5 hover:border-[#25D366] transition-all flex flex-col items-center text-center rounded-sm"
           >
             <div className="w-16 h-16 bg-[#25D366]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#25D366] transition-colors">
-              <MessageCircle size={32} className="text-[#25D366] group-hover:text-black transition-colors" />
+              <motion.div
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <MessageCircle size={32} className="text-[#25D366] group-hover:text-black transition-colors" />
+              </motion.div>
             </div>
             <h3 className="text-white font-bold text-xl uppercase mb-2">Agende pelo Whats</h3>
             <p className="text-gray-400 text-sm mb-4">Atendimento rápido e personalizado.</p>
@@ -38,7 +43,12 @@ const ContactStrip: React.FC = () => {
             className="group bg-[#150a1f] p-8 border border-white/5 hover:border-brand-pink transition-all flex flex-col items-center text-center rounded-sm"
           >
             <div className="w-16 h-16 bg-brand-pink/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-pink transition-colors">
-              <Instagram size={32} className="text-brand-pink group-hover:text-white transition-colors" />
+              <motion.div
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              >
+                <Instagram size={32} className="text-brand-pink group-hover:text-white transition-colors" />
+              </motion.div>
             </div>
             <h3 className="text-white font-bold text-xl uppercase mb-2">Siga o Movimento</h3>
             <p className="text-gray-400 text-sm mb-4">Inspirações diárias e nosso lifestyle.</p>
@@ -56,7 +66,12 @@ const ContactStrip: React.FC = () => {
             className="group bg-[#150a1f] p-8 border border-white/5 hover:border-brand-cyan transition-all flex flex-col items-center text-center rounded-sm"
           >
             <div className="w-16 h-16 bg-brand-cyan/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-cyan transition-colors">
-              <MapPin size={32} className="text-brand-cyan group-hover:text-black transition-colors" />
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              >
+                <MapPin size={32} className="text-brand-cyan group-hover:text-black transition-colors" />
+              </motion.div>
             </div>
             <h3 className="text-white font-bold text-xl uppercase mb-2">Visite o Espaço</h3>
             <p className="text-gray-400 text-sm mb-4 max-w-[200px]">{ADDRESS}</p>

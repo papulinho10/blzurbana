@@ -34,9 +34,21 @@ const Benefits: React.FC = () => {
             >
               <div className="absolute top-0 right-0 w-24 h-24 bg-brand-purple/10 rounded-full blur-2xl group-hover:bg-brand-purple/30 transition-all"></div>
               
-              <div className="inline-flex items-center justify-center w-14 h-14 bg-brand-cyan/10 text-brand-cyan mb-6 group-hover:bg-brand-cyan group-hover:text-black transition-all rounded-none transform -rotate-3 group-hover:rotate-0">
+              <motion.div 
+                className="inline-flex items-center justify-center w-14 h-14 bg-brand-cyan/10 text-brand-cyan mb-6 group-hover:bg-brand-cyan group-hover:text-black transition-all rounded-none transform -rotate-3 group-hover:rotate-0"
+                animate={{ 
+                  y: [0, -8, 0],
+                  rotate: [0, 5, -5, 0]
+                }}
+                transition={{ 
+                  duration: 4, 
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: index * 0.5 
+                }}
+              >
                 <benefit.icon size={28} strokeWidth={2.5} />
-              </div>
+              </motion.div>
               
               <h3 className="font-bold text-xl text-white mb-3 uppercase tracking-wide">{benefit.title}</h3>
               <p className="text-gray-400 text-sm leading-relaxed">{benefit.description}</p>

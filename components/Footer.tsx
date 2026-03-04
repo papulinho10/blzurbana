@@ -1,5 +1,6 @@
 import React from 'react';
 import { Instagram, Facebook, MapPin, Phone, Clock } from 'lucide-react';
+import { motion } from 'framer-motion';
 import Button from './ui/Button';
 import { WHATSAPP_LINK, NAV_LINKS } from '../constants';
 
@@ -7,12 +8,12 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-black pt-20 pb-10 border-t border-white/10">
       {/* Final CTA */}
-      <div className="max-w-4xl mx-auto px-6 text-center mb-20">
-        <h2 className="font-black text-4xl md:text-6xl text-white mb-6 uppercase">Ready to Glow?</h2>
+      <div className="max-w-4xl mx-auto px-6 text-center mb-20 flex flex-col items-center">
+        <h2 className="font-black text-4xl md:text-6xl text-white mb-6 uppercase">Pronta para Brilhar?</h2>
         <p className="text-gray-400 mb-8 text-lg font-medium">
           A sua melhor versão te espera no centro de Gramado.
         </p>
-        <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+        <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="inline-block">
             <Button className="px-12 py-5 text-lg">Agendar Agora</Button>
         </a>
       </div>
@@ -30,10 +31,14 @@ const Footer: React.FC = () => {
           </p>
           <div className="flex gap-4">
             <a href="https://www.instagram.com/blzaurbana_/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 flex items-center justify-center text-white hover:bg-brand-pink hover:text-white transition-all">
-                <Instagram size={20} />
+                <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}>
+                    <Instagram size={20} />
+                </motion.div>
             </a>
             <a href="#" className="w-10 h-10 bg-white/5 flex items-center justify-center text-white hover:bg-brand-cyan hover:text-black transition-all">
-                <Facebook size={20} />
+                <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
+                    <Facebook size={20} />
+                </motion.div>
             </a>
           </div>
         </div>
@@ -55,15 +60,21 @@ const Footer: React.FC = () => {
           <h4 className="text-brand-yellow font-bold uppercase tracking-widest text-xs mb-6">Contato</h4>
           <ul className="space-y-4 text-gray-400 text-sm">
             <li className="flex items-start gap-3">
-              <MapPin size={18} className="text-brand-pink flex-shrink-0" />
+              <motion.div animate={{ y: [0, -3, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
+                <MapPin size={18} className="text-brand-pink flex-shrink-0" />
+              </motion.div>
               <span>Avelino Alves de Moraes, 88 - Centro<br/>Gramado - RS, 95670-000</span>
             </li>
             <li className="flex items-center gap-3">
-              <Phone size={18} className="text-brand-cyan flex-shrink-0" />
+              <motion.div animate={{ rotate: [0, 5, -5, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
+                <Phone size={18} className="text-brand-cyan flex-shrink-0" />
+              </motion.div>
               <span>(54) 99954-1257</span>
             </li>
             <li className="flex items-center gap-3">
-              <Clock size={18} className="text-brand-purple flex-shrink-0" />
+              <motion.div animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: "linear" }}>
+                <Clock size={18} className="text-brand-purple flex-shrink-0" />
+              </motion.div>
               <span>Ter - Sáb: 09h às 20h</span>
             </li>
           </ul>

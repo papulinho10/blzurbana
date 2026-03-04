@@ -9,11 +9,9 @@ export const ADDRESS = "Avelino Alves de Moraes, 88 - Centro, Gramado - RS, 9567
 export const GOOGLE_MAPS_LINK = "https://www.google.com/maps/search/?api=1&query=Avelino+Alves+de+Moraes,+88+-+Centro,+Gramado+-+RS,+95670-000";
 
 export const NAV_LINKS = [
-  { name: 'Conceito', href: '#conceito' },
-  { name: 'Menu', href: '#servicos' },
-  { name: 'Vibe', href: '#vibe' },
-  { name: 'Galeria', href: '#galeria' },
-  { name: 'Manifesto', href: '#manifesto' },
+  { name: 'SERVIÇOS', href: '#servicos' },
+  { name: 'PORTFÓLIO', href: '#galeria' },
+  { name: 'CONTATO', href: '#contato' },
 ];
 
 export const BENEFITS: Benefit[] = [
@@ -60,6 +58,7 @@ export const SERVICES: Service[] = [
       "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=1000&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1000&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000&auto=format&fit=crop",
     ],
     collaborators: [
@@ -170,23 +169,23 @@ export const SERVICES: Service[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
-    name: "Júlia M.",
-    role: "Designer",
-    content: "Finalmente um lugar em Gramado que entende meu estilo. Não tentaram me padronizar, apenas realçaram quem eu sou.",
+    name: "Tayná Azevedo",
+    role: "",
+    content: "Amei o atendimento, funcionários super simpáticos e qualificados. Minha maquiagem e penteado ficaram perfeitos, fez exatamente do jeito que eu pedi.",
     rating: 5,
   },
   {
     id: 2,
-    name: "Lucas B.",
-    role: "Artista",
-    content: "A vibe desse lugar é surreal. É moderno, é urbano, é arte pura. O corte ficou exatamente como eu imaginava.",
+    name: "Mariana Ribas",
+    role: "",
+    content: "Melhor salão de Gramado! Profissionais capacitados e rápidos! Todas as vezes muito bem atendida em um ambiente muito descolado e aconchegante! Perfeito para atender eventos e produções diversas, além de conter um café maravilhoso com bebidas, drinks e petiscos! Amooooo",
     rating: 5,
   },
   {
     id: 3,
-    name: "Carla T.",
-    role: "Turista",
-    content: "Entrei pela curiosidade do visual do salão e saí apaixonada. Atendimento descontraído e profissionalismo ímpar.",
+    name: "Mariana Gomes",
+    role: "",
+    content: "Salão impecável em todos os sentidos. Lindo, convidativo e repleto de profissionais maravilhosos. Os resultados são sempre impecáveis, sou apaixonada! Recomendo sempre.",
     rating: 5,
   },
 ];

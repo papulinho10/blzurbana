@@ -39,27 +39,59 @@ const Services: React.FC<ServicesProps> = ({ onServiceClick }) => {
               {/* Card Container */}
               <div className="absolute inset-0 bg-gray-800 transform transition-transform duration-300 group-hover:-translate-y-2 group-hover:-translate-x-2 border border-white/10 z-0"></div>
               
-              <div className="absolute inset-0 z-10 overflow-hidden bg-black border border-white/5 group-hover:border-brand-pink transition-colors">
-                <img 
+              <motion.div 
+                className="absolute inset-0 z-10 overflow-hidden bg-black border border-white/5"
+                whileInView={{ borderColor: '#E14E72' }}
+                viewport={{ amount: 0.6 }}
+              >
+                <motion.img 
                   src={service.image} 
                   alt={service.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100 grayscale group-hover:grayscale-0"
+                  className="w-full h-full object-cover"
+                  initial={{ opacity: 0.6, grayscale: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, grayscale: 0, scale: 1.1 }}
+                  viewport={{ amount: 0.6 }}
+                  transition={{ duration: 0.7 }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <h3 className="font-black text-2xl text-white mb-2 uppercase leading-none">
+                  <motion.h3 
+                    className="font-black text-2xl text-white mb-2 uppercase leading-none"
+                    initial={{ y: 0 }}
+                    whileInView={{ y: -20 }}
+                    viewport={{ amount: 0.6 }}
+                    transition={{ duration: 0.5 }}
+                  >
                     {service.title}
-                  </h3>
-                  <div className="h-1 w-0 bg-brand-cyan mb-4 group-hover:w-12 transition-all duration-300" />
-                  <p className="text-gray-300 text-sm mb-4 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 font-medium line-clamp-2 md:line-clamp-3">
+                  </motion.h3>
+                  <motion.div 
+                    className="h-1 bg-brand-cyan mb-4" 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: 48 }}
+                    viewport={{ amount: 0.6 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                  <motion.p 
+                    className="text-gray-300 text-sm mb-4 font-medium line-clamp-2 md:line-clamp-3"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ amount: 0.6 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                  >
                     {service.description}
-                  </p>
-                  <span className="text-xs font-bold text-brand-yellow uppercase tracking-wider opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                  </motion.p>
+                  <motion.span 
+                    className="text-xs font-bold text-brand-yellow uppercase tracking-wider"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ amount: 0.6 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
                     + Ver Detalhes
-                  </span>
+                  </motion.span>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
@@ -81,19 +113,32 @@ const Services: React.FC<ServicesProps> = ({ onServiceClick }) => {
                     className="group bg-[#150a1f] border border-white/10 hover:border-brand-purple transition-all duration-500 rounded-sm overflow-hidden flex flex-col"
                 >
                     <div className="relative h-64 overflow-hidden">
-                        <img 
+                        <motion.img 
                             src="https://i.postimg.cc/1Xg8SCDp/bar-neon.avif" 
                             alt="Bar Neon Beleza Urbana" 
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            className="w-full h-full object-cover"
+                            whileInView={{ scale: 1.1 }}
+                            transition={{ duration: 1.5 }}
                         />
                          <div className="absolute inset-0 bg-brand-purple/20 mix-blend-overlay group-hover:bg-transparent transition-colors"></div>
                     </div>
                     
                     <div className="p-8 flex-1 flex flex-col">
                         <div className="flex items-center gap-3 mb-4">
-                            <div className="w-10 h-10 bg-brand-purple/20 flex items-center justify-center rounded-full text-brand-purple">
+                            <motion.div 
+                                className="w-10 h-10 bg-brand-purple/20 flex items-center justify-center rounded-full text-brand-purple"
+                                animate={{ 
+                                    scale: [1, 1.2, 1],
+                                    rotate: [0, 10, -10, 0]
+                                }}
+                                transition={{ 
+                                    duration: 3, 
+                                    repeat: Infinity, 
+                                    ease: "easeInOut" 
+                                }}
+                            >
                                 <Coffee size={20} />
-                            </div>
+                            </motion.div>
                             <h3 className="text-2xl font-black text-white uppercase">Bar & Lancheria <span className="text-brand-purple">Exclusivos</span></h3>
                         </div>
                         <p className="text-gray-400 leading-relaxed font-medium">
@@ -110,19 +155,25 @@ const Services: React.FC<ServicesProps> = ({ onServiceClick }) => {
                     className="group bg-[#150a1f] border border-white/10 hover:border-brand-yellow transition-all duration-500 rounded-sm overflow-hidden flex flex-col"
                 >
                     <div className="relative h-64 overflow-hidden">
-                         <img 
+                         <motion.img 
                             src="https://i.postimg.cc/dVRLJTTw/por-do-sol.avif" 
                             alt="Vista do Pôr do Sol" 
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            className="w-full h-full object-cover"
+                            whileInView={{ scale: 1.1 }}
+                            transition={{ duration: 1.5 }}
                         />
                          <div className="absolute inset-0 bg-brand-yellow/20 mix-blend-overlay group-hover:bg-transparent transition-colors"></div>
                     </div>
 
                     <div className="p-8 flex-1 flex flex-col">
                         <div className="flex items-center gap-3 mb-4">
-                             <div className="w-10 h-10 bg-brand-yellow/20 flex items-center justify-center rounded-full text-brand-yellow">
+                             <motion.div 
+                                className="w-10 h-10 bg-brand-yellow/20 flex items-center justify-center rounded-full text-brand-yellow"
+                                animate={{ y: [0, -10, 0] }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                            >
                                 <Sunset size={20} />
-                            </div>
+                            </motion.div>
                             <h3 className="text-2xl font-black text-white uppercase">Vista <span className="text-brand-yellow">Espetacular</span></h3>
                         </div>
                         <p className="text-gray-400 leading-relaxed font-medium">

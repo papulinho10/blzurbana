@@ -16,7 +16,20 @@ const FloatingWhatsApp: React.FC = () => {
       aria-label="Fale conosco no WhatsApp"
     >
       <div className="absolute inset-0 rounded-full animate-ping bg-[#25D366] opacity-20"></div>
-      <MessageCircle size={32} color="white" fill="white" className="group-hover:scale-110 transition-transform" />
+      <motion.div
+        animate={{ 
+          rotate: [0, -10, 10, -10, 10, 0],
+          scale: [1, 1.1, 1.1, 1.1, 1.1, 1]
+        }}
+        transition={{ 
+          duration: 2, 
+          repeat: Infinity, 
+          repeatDelay: 3,
+          ease: "easeInOut" 
+        }}
+      >
+        <MessageCircle size={32} color="white" fill="white" className="group-hover:scale-110 transition-transform" />
+      </motion.div>
     </motion.a>
   );
 };

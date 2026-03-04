@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star, Quote, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { TESTIMONIALS } from '../constants';
 import Button from './ui/Button';
 
@@ -20,7 +21,13 @@ const Testimonials: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {TESTIMONIALS.map((testimonial) => (
             <div key={testimonial.id} className="bg-[#150a1f] p-8 border border-white/5 relative hover:border-brand-purple transition-all group">
-              <Quote className="absolute top-4 right-4 text-brand-purple opacity-20 group-hover:opacity-100 transition-opacity" size={64} />
+              <motion.div
+                className="absolute top-4 right-4 text-brand-purple opacity-20 group-hover:opacity-100 transition-opacity"
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Quote size={64} />
+              </motion.div>
               
               <div className="flex gap-1 mb-6 text-brand-yellow">
                 {[...Array(testimonial.rating)].map((_, i) => (
@@ -38,7 +45,6 @@ const Testimonials: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-bold uppercase">{testimonial.name}</h4>
-                  <span className="text-xs text-brand-cyan font-bold tracking-widest uppercase">{testimonial.role}</span>
                 </div>
               </div>
             </div>
@@ -48,7 +54,7 @@ const Testimonials: React.FC = () => {
         <div className="flex justify-center">
             <a href={googleReviewsLink} target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="group border-white text-white hover:border-brand-yellow hover:text-brand-yellow">
-                    Ver avaliações reais no Google
+                    VER MAIS AVALIAÇÕES NO GOOGLE
                     <ExternalLink size={16} className="ml-2 group-hover:scale-110 transition-transform" />
                 </Button>
             </a>
