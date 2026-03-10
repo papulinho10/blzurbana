@@ -122,7 +122,7 @@ const Services: React.FC<ServicesProps> = ({ onServiceClick }) => {
                             whileInView={{ scale: 1.1 }}
                             transition={{ duration: 1.5 }}
                         />
-                         <div className="absolute inset-0 bg-brand-purple/20 mix-blend-overlay group-hover:bg-transparent transition-colors"></div>
+                         <div className="absolute inset-0 bg-brand-purple/20 group-hover:bg-transparent transition-colors"></div>
                     </div>
                     
                     <div className="p-8 flex-1 flex flex-col">
@@ -165,7 +165,7 @@ const Services: React.FC<ServicesProps> = ({ onServiceClick }) => {
                             whileInView={{ scale: 1.1 }}
                             transition={{ duration: 1.5 }}
                         />
-                         <div className="absolute inset-0 bg-brand-yellow/20 mix-blend-overlay group-hover:bg-transparent transition-colors"></div>
+                         <div className="absolute inset-0 bg-brand-yellow/20 group-hover:bg-transparent transition-colors"></div>
                     </div>
 
                     <div className="p-8 flex-1 flex flex-col">

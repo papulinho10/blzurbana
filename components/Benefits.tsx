@@ -32,7 +32,7 @@ const Benefits: React.FC = () => {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="bg-[#121212] p-8 border-2 border-transparent hover:border-brand-purple transition-all duration-300 group relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-brand-purple/10 rounded-full blur-2xl group-hover:bg-brand-purple/30 transition-all"></div>
+              <div className="absolute top-0 right-0 w-24 h-24 rounded-full transition-all" style={{ background: 'radial-gradient(circle, rgba(131,3,175,0.15) 0%, rgba(131,3,175,0) 70%)' }}></div>
               
               <motion.div 
                 className="inline-flex items-center justify-center w-14 h-14 bg-brand-cyan/10 text-brand-cyan mb-6 group-hover:bg-brand-cyan group-hover:text-black transition-all rounded-none transform -rotate-3 group-hover:rotate-0"

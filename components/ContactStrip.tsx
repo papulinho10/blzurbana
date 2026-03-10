@@ -6,7 +6,7 @@ import { WHATSAPP_LINK, INSTAGRAM_LINK, GOOGLE_MAPS_LINK, ADDRESS } from '../con
 const ContactStrip: React.FC = () => {
   return (
     <section id="contato" className="bg-brand-dark py-16 border-t border-b border-white/10 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-64 h-64 bg-brand-cyan/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-64 h-64 rounded-full" style={{ background: 'radial-gradient(circle, rgba(57,173,221,0.05) 0%, rgba(57,173,221,0) 70%)' }}></div>
       
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

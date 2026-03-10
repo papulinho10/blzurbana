@@ -9,7 +9,7 @@ const Offer: React.FC = () => {
     <section className="py-20 bg-brand-pink relative overflow-hidden">
         {/* Abstract shapes */}
         <div className="absolute -top-24 -left-24 w-64 h-64 border-[20px] border-brand-yellow rounded-full opacity-50"></div>
-        <div className="absolute top-1/2 right-0 w-96 h-96 bg-brand-purple mix-blend-multiply filter blur-3xl opacity-60"></div>
+        <div className="absolute top-1/2 right-0 w-96 h-96 rounded-full mix-blend-multiply opacity-60" style={{ background: 'radial-gradient(circle, rgba(131,3,175,0.8) 0%, rgba(131,3,175,0) 70%)' }}></div>
 
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
         

@@ -9,17 +9,17 @@ const Hero: React.FC = () => {
     <section className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden bg-brand-dark pt-24 pb-12 md:pt-0 md:pb-0">
       {/* Background Graphic Elements */}
       <div className="absolute inset-0 z-0 opacity-40">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-purple rounded-full blur-[120px] mix-blend-screen"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-pink rounded-full blur-[150px] mix-blend-screen"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full mix-blend-screen" style={{ background: 'radial-gradient(circle, rgba(131,3,175,0.8) 0%, rgba(131,3,175,0) 70%)' }}></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full mix-blend-screen" style={{ background: 'radial-gradient(circle, rgba(225,78,114,0.8) 0%, rgba(225,78,114,0) 70%)' }}></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
       </div>
       
       {/* Dynamic Image Overlay */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-brand-dark">
           <img 
             src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=2069&auto=format&fit=crop"
             alt="Urban Beauty Model"
-            className="w-full h-full object-cover opacity-30 grayscale mix-blend-overlay"
+            className="w-full h-full object-cover opacity-20 grayscale"
             fetchPriority="high"
             loading="eager"
           />
@@ -73,12 +73,11 @@ const Hero: React.FC = () => {
              <div className="relative w-full aspect-[3/4] border-4 border-brand-cyan transform rotate-6">
                 <motion.img 
                     src="https://i.postimg.cc/qBFQFvYn/Cabecalho-(Post-para-Instagram-(45))-(1).png" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                     alt="Urban Style"
                     fetchPriority="high"
                     loading="eager"
                     animate={{ 
-                        filter: ["grayscale(100%)", "grayscale(0%)", "grayscale(100%)"],
                         scale: [1, 1.02, 1]
                     }}
                     transition={{
