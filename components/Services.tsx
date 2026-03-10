@@ -48,6 +48,7 @@ const Services: React.FC<ServicesProps> = ({ onServiceClick }) => {
                   src={service.image} 
                   alt={service.title} 
                   className="w-full h-full object-cover"
+                  loading="lazy"
                   initial={{ opacity: 0.6, grayscale: 1, scale: 1 }}
                   whileInView={{ opacity: 1, grayscale: 0, scale: 1.1 }}
                   viewport={{ amount: 0.6 }}
@@ -117,6 +118,7 @@ const Services: React.FC<ServicesProps> = ({ onServiceClick }) => {
                             src="https://i.postimg.cc/1Xg8SCDp/bar-neon.avif" 
                             alt="Bar Neon Beleza Urbana" 
                             className="w-full h-full object-cover"
+                            loading="lazy"
                             whileInView={{ scale: 1.1 }}
                             transition={{ duration: 1.5 }}
                         />
@@ -159,6 +161,7 @@ const Services: React.FC<ServicesProps> = ({ onServiceClick }) => {
                             src="https://i.postimg.cc/dVRLJTTw/por-do-sol.avif" 
                             alt="Vista do Pôr do Sol" 
                             className="w-full h-full object-cover"
+                            loading="lazy"
                             whileInView={{ scale: 1.1 }}
                             transition={{ duration: 1.5 }}
                         />

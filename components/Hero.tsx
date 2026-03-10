@@ -6,7 +6,7 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative h-screen min-h-[700px] w-full flex items-center justify-center overflow-hidden bg-brand-dark pt-16 md:pt-0">
+    <section className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden bg-brand-dark pt-24 pb-12 md:pt-0 md:pb-0">
       {/* Background Graphic Elements */}
       <div className="absolute inset-0 z-0 opacity-40">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-purple rounded-full blur-[120px] mix-blend-screen"></div>
@@ -20,6 +20,8 @@ const Hero: React.FC = () => {
             src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=2069&auto=format&fit=crop"
             alt="Urban Beauty Model"
             className="w-full h-full object-cover opacity-30 grayscale mix-blend-overlay"
+            fetchpriority="high"
+            loading="eager"
           />
       </div>
 
@@ -73,6 +75,8 @@ const Hero: React.FC = () => {
                     src="https://i.postimg.cc/qBFQFvYn/Cabecalho-(Post-para-Instagram-(45))-(1).png" 
                     className="w-full h-full object-cover"
                     alt="Urban Style"
+                    fetchpriority="high"
+                    loading="eager"
                     animate={{ 
                         filter: ["grayscale(100%)", "grayscale(0%)", "grayscale(100%)"],
                         scale: [1, 1.02, 1]

@@ -197,6 +197,7 @@ const Gallery: React.FC = () => {
                   src={src} 
                   alt={`Beleza Urbana - ${activeTab} ${index}`} 
                   className="w-full h-auto"
+                  loading="lazy"
                 />
                 
                 {/* Overlay Informativo (Ainda útil para mostrar texto) */}
@@ -248,6 +249,7 @@ const Gallery: React.FC = () => {
               alt="Full screen view"
               className="max-w-full max-h-[90vh] object-contain rounded-sm shadow-2xl"
               onClick={(e) => e.stopPropagation()}
+              loading="lazy"
             />
 
             <button

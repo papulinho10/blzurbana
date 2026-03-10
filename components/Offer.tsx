@@ -44,6 +44,7 @@ const Offer: React.FC = () => {
                     src="https://i.postimg.cc/HxrHpLt7/Cabecalho-(Post-para-Instagram-(45))-(3).png" 
                     alt="Close up woman" 
                     className="w-full h-auto object-contain"
+                    loading="lazy"
                     animate={{ 
                         filter: ["grayscale(100%)", "grayscale(0%)", "grayscale(100%)"],
                         scale: [1, 1.02, 1]

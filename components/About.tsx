@@ -22,6 +22,7 @@ const About: React.FC = () => {
                 src="https://images.unsplash.com/photo-1574719967693-59677b102607?q=80&w=1287&auto=format&fit=crop" 
                 alt="Manifesto Visual" 
                 className="w-full h-auto grayscale contrast-125 mix-blend-multiply"
+                loading="lazy"
             />
           </div>
           {/* Back Square */}

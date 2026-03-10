@@ -95,6 +95,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
                                 src={img} 
                                 alt={`${service.title} ${idx + 1}`} 
                                 className="w-full h-full object-cover pointer-events-none"
+                                loading="lazy"
                                 animate={{ 
                                     filter: idx === imgIndex ? "grayscale(0%)" : "grayscale(100%)",
                                     scale: idx === imgIndex ? 1 : 1.05
@@ -198,6 +199,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
                       src={collab.image} 
                       alt={collab.name} 
                       className="w-full h-full rounded-full object-cover border-4 border-[#150a1f]"
+                      loading="lazy"
                     />
                   </div>
                   
