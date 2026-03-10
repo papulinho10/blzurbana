@@ -2,7 +2,7 @@ import { Heart, Zap, User, Globe, Sparkles } from 'lucide-react';
 import { Service, Testimonial, Benefit, FaqItem } from './types';
 
 // Updated Contact Info
-export const WHATSAPP_NUMBER = "5554996624162"; 
+export const WHATSAPP_NUMBER = "5554999541257"; 
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Olá! Gostaria de agendar um horário e viver a experiência Beleza Urbana.`;
 export const INSTAGRAM_LINK = "https://www.instagram.com/blzaurbana_/";
 export const ADDRESS = "Avelino Alves de Moraes, 88 - Centro, Gramado - RS, 95670-000";
@@ -64,19 +64,27 @@ export const SERVICES: Service[] = [
     collaborators: [
       {
         id: 1,
-        name: "Ana Silva",
+        name: "David Andrade",
         role: "Hair Stylist",
-        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=500&auto=format&fit=crop",
-        instagramHandle: "@anasilva.hair",
-        instagramLink: "https://instagram.com"
+        image: "https://i.postimg.cc/d1QHhb24/profissional-capilares-1.avif",
+        instagramHandle: "@dwandrade",
+        instagramLink: "https://instagram.com/dwandrade/"
       },
       {
         id: 2,
-        name: "Carlos M.",
-        role: "Colorista",
-        image: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=500&auto=format&fit=crop",
-        instagramHandle: "@carlos.color",
-        instagramLink: "https://instagram.com"
+        name: "Mari Melo",
+        role: "Hair Stylist",
+        image: "https://i.postimg.cc/pds7JVLF/profissional-capilares-2-(1).avif",
+        instagramHandle: "@eumarimelo",
+        instagramLink: "https://www.instagram.com/eumarimelo/"
+      },
+      {
+        id: 3,
+        name: "Natiele",
+        role: "Hair Stylist",
+        image: "https://i.postimg.cc/63DMM8J2/profissional-capilares-3.avif",
+        instagramHandle: "@hairbynatiele",
+        instagramLink: "https://www.instagram.com/hairbynatiele/"
       }
     ]
   },
@@ -100,11 +108,27 @@ export const SERVICES: Service[] = [
     collaborators: [
       {
         id: 4,
-        name: "Bia Souza",
+        name: "Junior Maciel",
         role: "Makeup Artist",
-        image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=500&auto=format&fit=crop",
-        instagramHandle: "@bia.makeup",
-        instagramLink: "https://instagram.com"
+        image: "https://i.postimg.cc/25N8NwQQ/profissional-maquiagem-2.avif",
+        instagramHandle: "@jrmacieel",
+        instagramLink: "https://www.instagram.com/jrmacieel/"
+      },
+      {
+        id: 5,
+        name: "Manuela Duarte",
+        role: "Makeup Artist",
+        image: "https://i.postimg.cc/bvR8cjY3/profissional-maquiagem-1.avif",
+        instagramHandle: "@manueladuartemakeup",
+        instagramLink: "https://www.instagram.com/manueladuartemakeup/"
+      },
+      {
+        id: 6,
+        name: "David Andrade",
+        role: "Makeup Artist",
+        image: "https://i.postimg.cc/d1QHhb24/profissional-capilares-1.avif",
+        instagramHandle: "@dwandrade",
+        instagramLink: "https://instagram.com/dwandrade/"
       }
     ]
   },
@@ -127,12 +151,12 @@ export const SERVICES: Service[] = [
     ],
     collaborators: [
       {
-        id: 5,
-        name: "Jéssica L.",
+        id: 7,
+        name: "Karen Berti",
         role: "Nail Designer",
-        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=500&auto=format&fit=crop",
-        instagramHandle: "@jess.nails",
-        instagramLink: "https://instagram.com"
+        image: "https://i.postimg.cc/W1hJ1Xqg/profissional-nail-karen.avif",
+        instagramHandle: "@karenberti_nails",
+        instagramLink: "https://www.instagram.com/karenberti_nails/"
       }
     ]
   },
@@ -155,12 +179,12 @@ export const SERVICES: Service[] = [
     ],
     collaborators: [
       {
-        id: 6,
-        name: "Patricia R.",
+        id: 8,
+        name: "Natiele",
         role: "Esteticista",
-        image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?q=80&w=500&auto=format&fit=crop",
-        instagramHandle: "@pati.skin",
-        instagramLink: "https://instagram.com"
+        image: "https://i.postimg.cc/63DMM8J2/profissional-capilares-3.avif",
+        instagramHandle: "@hairbynatiele",
+        instagramLink: "https://www.instagram.com/hairbynatiele/"
       }
     ]
   },

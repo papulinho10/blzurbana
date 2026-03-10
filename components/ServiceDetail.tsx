@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, CheckCircle2, Calendar, Instagram, Camera, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Calendar, Instagram, Camera, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { Service } from '../types';
 import Button from './ui/Button';
 import { WHATSAPP_LINK } from '../constants';
@@ -12,6 +12,7 @@ interface ServiceDetailProps {
 
 const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
   const [imgIndex, setImgIndex] = useState(0);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,14 +35,49 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
 
   // Auto-play effect
   useEffect(() => {
-    if (images.length <= 1) return;
+    if (images.length <= 1 || selectedImageIndex !== null) return;
     
     const interval = setInterval(() => {
       paginate(1);
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [imgIndex, images.length]);
+  }, [imgIndex, images.length, selectedImageIndex]);
+
+  const handleImageClick = (index: number) => {
+    setSelectedImageIndex(index);
+  };
+
+  const handleCloseLightbox = () => {
+    setSelectedImageIndex(null);
+  };
+
+  const handleNextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((prev) => (prev === null ? null : (prev + 1) % images.length));
+    }
+  };
+
+  const handlePrevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((prev) => (prev === null ? null : (prev - 1 + images.length) % images.length));
+    }
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedImageIndex === null) return;
+      if (e.key === 'Escape') handleCloseLightbox();
+      if (e.key === 'ArrowRight') setSelectedImageIndex((prev) => (prev === null ? null : (prev + 1) % images.length));
+      if (e.key === 'ArrowLeft') setSelectedImageIndex((prev) => (prev === null ? null : (prev - 1 + images.length) % images.length));
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImageIndex, images.length]);
 
   return (
     // Aumentado pt-24 para pt-32 (padding top) para evitar sobreposição do header
@@ -90,7 +126,11 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
                     }}
                 >
                     {images.map((img, idx) => (
-                        <div key={idx} className="w-full h-full flex-shrink-0 relative">
+                        <div 
+                            key={idx} 
+                            className="w-full h-full flex-shrink-0 relative cursor-pointer"
+                            onClick={() => handleImageClick(idx)}
+                        >
                             <motion.img 
                                 src={img} 
                                 alt={`${service.title} ${idx + 1}`} 
@@ -222,6 +262,54 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
         )}
 
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImageIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
+            onClick={handleCloseLightbox}
+          >
+            <button
+              className="absolute top-6 right-6 text-white hover:text-brand-pink transition-colors z-50"
+              onClick={handleCloseLightbox}
+            >
+              <X size={40} />
+            </button>
+
+            <button
+              className="absolute left-4 md:left-8 text-white hover:text-brand-cyan transition-colors z-50 p-2 bg-black/20 rounded-full hover:bg-black/50"
+              onClick={handlePrevImage}
+            >
+              <ChevronLeft size={40} />
+            </button>
+
+            <motion.img
+              key={selectedImageIndex}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              src={images[selectedImageIndex]}
+              alt="Full screen view"
+              className="max-w-full max-h-[90vh] object-contain rounded-sm shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+              loading="lazy"
+            />
+
+            <button
+              className="absolute right-4 md:right-8 text-white hover:text-brand-cyan transition-colors z-50 p-2 bg-black/20 rounded-full hover:bg-black/50"
+              onClick={handleNextImage}
+            >
+              <ChevronRight size={40} />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </div>
   );
 };
