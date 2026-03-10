@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Button from './ui/Button';
 import { WHATSAPP_LINK } from '../constants';
 import { Timer, Star } from 'lucide-react';
@@ -38,11 +39,20 @@ const Offer: React.FC = () => {
         </div>
 
         <div className="md:w-1/2 relative">
-            <div className="relative w-full aspect-square md:w-[400px] md:h-[400px] bg-brand-cyan mx-auto overflow-hidden border-4 border-white transform rotate-3 hover:-rotate-3 transition-transform duration-500">
-                <img 
-                    src="https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?q=80&w=2036&auto=format&fit=crop" 
+            <div className="relative w-full md:w-[400px] bg-brand-cyan mx-auto overflow-hidden border-4 border-white transform rotate-3 hover:-rotate-3 transition-transform duration-500">
+                <motion.img 
+                    src="https://i.postimg.cc/HxrHpLt7/Cabecalho-(Post-para-Instagram-(45))-(3).png" 
                     alt="Close up woman" 
-                    className="w-full h-full object-cover mix-blend-hard-light grayscale contrast-125"
+                    className="w-full h-auto object-contain"
+                    animate={{ 
+                        filter: ["grayscale(100%)", "grayscale(0%)", "grayscale(100%)"],
+                        scale: [1, 1.02, 1]
+                    }}
+                    transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
                 />
             </div>
             {/* Sticker */}

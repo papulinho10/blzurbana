@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Benefits from './components/Benefits';
@@ -16,14 +16,26 @@ import { SERVICES } from './constants';
 
 function App() {
   const [selectedServiceId, setSelectedServiceId] = useState<number | null>(null);
+  const scrollPositionRef = useRef(0);
 
   const handleServiceSelect = (id: number) => {
+    scrollPositionRef.current = window.scrollY;
     setSelectedServiceId(id);
   };
 
   const handleBackToHome = () => {
     setSelectedServiceId(null);
   };
+
+  // Restore scroll position when returning to home
+  useEffect(() => {
+    if (selectedServiceId === null) {
+      // Small timeout to ensure DOM is rendered
+      setTimeout(() => {
+        window.scrollTo(0, scrollPositionRef.current);
+      }, 0);
+    }
+  }, [selectedServiceId]);
 
   const selectedService = SERVICES.find(s => s.id === selectedServiceId);
 

@@ -69,10 +69,19 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.5, duration: 0.8 }}
         >
              <div className="relative w-full aspect-[3/4] border-4 border-brand-cyan transform rotate-6">
-                <img 
-                    src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=1000&auto=format&fit=crop" 
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                <motion.img 
+                    src="https://i.postimg.cc/qBFQFvYn/Cabecalho-(Post-para-Instagram-(45))-(1).png" 
+                    className="w-full h-full object-cover"
                     alt="Urban Style"
+                    animate={{ 
+                        filter: ["grayscale(100%)", "grayscale(0%)", "grayscale(100%)"],
+                        scale: [1, 1.02, 1]
+                    }}
+                    transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
                 />
                 <div className="absolute -bottom-10 -left-10 bg-brand-pink text-white font-black text-4xl p-4 transform -rotate-6 shadow-[8px_8px_0px_#8303AF]">
                     BLZ<br/>URB

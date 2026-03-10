@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowLeft, CheckCircle2, Calendar, Instagram, Camera } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, CheckCircle2, Calendar, Instagram, Camera, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Service } from '../types';
 import Button from './ui/Button';
 import { WHATSAPP_LINK } from '../constants';
@@ -11,33 +11,37 @@ interface ServiceDetailProps {
 }
 
 const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [isDown, setIsDown] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
+  const [imgIndex, setImgIndex] = useState(0);
   
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Mouse drag handlers for Desktop "pull" feel
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if(!scrollContainerRef.current) return;
-    setIsDown(true);
-    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
-    setScrollLeft(scrollContainerRef.current.scrollLeft);
+  const images = service.galleryImages && service.galleryImages.length > 0 
+    ? service.galleryImages 
+    : [service.image];
+
+  const paginate = (newDirection: number) => {
+    const newIndex = imgIndex + newDirection;
+    if (newIndex >= 0 && newIndex < images.length) {
+        setImgIndex(newIndex);
+    } else if (newIndex >= images.length) {
+        setImgIndex(0); // Loop back to start
+    } else if (newIndex < 0) {
+        setImgIndex(images.length - 1); // Loop to end
+    }
   };
 
-  const handleMouseLeave = () => setIsDown(false);
-  const handleMouseUp = () => setIsDown(false);
+  // Auto-play effect
+  useEffect(() => {
+    if (images.length <= 1) return;
+    
+    const interval = setInterval(() => {
+      paginate(1);
+    }, 4000);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDown || !scrollContainerRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollContainerRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // scroll-fast multiplier
-    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
-  };
+    return () => clearInterval(interval);
+  }, [imgIndex, images.length]);
 
   return (
     // Aumentado pt-24 para pt-32 (padding top) para evitar sobreposição do header
@@ -55,7 +59,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-20">
           
-          {/* Left: Image */}
+          {/* Left: Image / Gallery Carousel */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -63,15 +67,58 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
             className="relative"
           >
             <div className="absolute top-4 left-4 w-full h-full border-2 border-brand-pink/30 transform translate-x-4 translate-y-4 hidden md:block"></div>
-            {/* Alterado aspect ratio para mobile: aspect-video no mobile, aspect-[3/4] no desktop */}
-            <div className="relative aspect-video md:aspect-[3/4] overflow-hidden border border-white/10 bg-[#1a1a1a] group rounded-sm">
-              <img 
-                src={service.image} 
-                alt={service.title} 
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
-              />
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-60"></div>
+            
+            {/* Carousel Container */}
+            <div className="relative aspect-video md:aspect-[3/4] overflow-hidden border border-white/10 bg-[#1a1a1a] group rounded-sm cursor-grab active:cursor-grabbing">
+                <motion.div
+                    className="flex h-full"
+                    animate={{ x: `-${imgIndex * 100}%` }}
+                    transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={1}
+                    onDragEnd={(e, { offset, velocity }) => {
+                        const swipe = Math.abs(offset.x) * velocity.x;
+                        const swipeThreshold = 100; // Lower threshold for easier swipe
+
+                        // Check if swipe is strong enough or drag distance is significant (e.g., > 25% of width approx, or just > 50px)
+                        if (offset.x < -50 || (offset.x < 0 && swipe < -swipeThreshold)) {
+                            paginate(1);
+                        } else if (offset.x > 50 || (offset.x > 0 && swipe > swipeThreshold)) {
+                            paginate(-1);
+                        }
+                    }}
+                >
+                    {images.map((img, idx) => (
+                        <div key={idx} className="w-full h-full flex-shrink-0 relative">
+                            <motion.img 
+                                src={img} 
+                                alt={`${service.title} ${idx + 1}`} 
+                                className="w-full h-full object-cover pointer-events-none"
+                                animate={{ 
+                                    filter: idx === imgIndex ? "grayscale(0%)" : "grayscale(100%)",
+                                    scale: idx === imgIndex ? 1 : 1.05
+                                }}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-60"></div>
+                        </div>
+                    ))}
+                </motion.div>
+
+                {/* Navigation Arrows Removed */}
+                
+                {/* Dots Indicator */}
+                {images.length > 1 && (
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                        {images.map((_, idx) => (
+                            <div 
+                                key={idx} 
+                                className={`w-2 h-2 rounded-full transition-colors ${idx === imgIndex ? 'bg-brand-pink' : 'bg-white/30'}`}
+                            />
+                        ))}
+                    </div>
+                )}
             </div>
           </motion.div>
 
@@ -117,55 +164,16 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
             <div className="flex flex-col sm:flex-row gap-4">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex-1">
                 <Button fullWidth>
-                  <Calendar size={18} className="mr-2" />
-                  Agendar Horário
+                  <span className="flex items-center justify-center gap-2">
+                    <Calendar size={18} />
+                    Agendar Horário
+                  </span>
                 </Button>
               </a>
             </div>
 
           </motion.div>
         </div>
-
-        {/* Gallery Section with Pull-to-Scroll */}
-        {service.galleryImages && service.galleryImages.length > 0 && (
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-20"
-          >
-             <div className="flex items-center gap-3 mb-8">
-                <Camera className="text-brand-cyan" size={24} />
-                <h3 className="text-2xl font-black text-white uppercase">Inspirações</h3>
-             </div>
-             
-             {/* Horizontal Scroll Container */}
-             {/* Added event listeners for mouse drag and scrollbar-hide class */}
-             <div 
-                ref={scrollContainerRef}
-                onMouseDown={handleMouseDown}
-                onMouseLeave={handleMouseLeave}
-                onMouseUp={handleMouseUp}
-                onMouseMove={handleMouseMove}
-                className={`flex overflow-x-auto gap-4 pb-6 scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0 ${isDown ? 'cursor-grabbing' : 'cursor-grab snap-x snap-mandatory'}`}
-             >
-                {service.galleryImages.map((img, idx) => (
-                  /* Reduzi o tamanho das imagens da galeria no mobile para w-[200px] h-[260px] */
-                  <div key={idx} className="flex-shrink-0 w-[200px] h-[260px] md:w-[300px] md:h-[400px] snap-center border border-white/10 bg-[#1a1a1a] relative group overflow-hidden select-none">
-                    <img 
-                      src={img} 
-                      alt={`${service.title} inspiration ${idx + 1}`}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 pointer-events-none"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span className="text-brand-yellow font-bold text-xs uppercase tracking-widest">Beleza Urbana</span>
-                    </div>
-                  </div>
-                ))}
-             </div>
-             <p className="text-center text-xs text-gray-500 mt-2 md:hidden">Deslize para ver mais</p>
-          </motion.div>
-        )}
 
         {/* Collaborators Section */}
         {service.collaborators && service.collaborators.length > 0 && (

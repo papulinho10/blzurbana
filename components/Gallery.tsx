@@ -4,6 +4,7 @@ import { Sparkles, Camera, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Fotos dos Trabalhos (Cabelo, Make, Unhas)
 const workImages = [
+  "https://i.postimg.cc/9F8p9FPf/Whats-App-Image-2026-01-17-at-00-58-38.jpg",
   "https://i.postimg.cc/66LZ9gsd/trabalho-novo-1.avif",
   "https://i.postimg.cc/d1c7Fm4N/trabalho-novo-4.avif",
   "https://i.postimg.cc/kMcVrS8Y/trabalho-novo-6.avif",
