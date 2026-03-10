@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
             src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=2069&auto=format&fit=crop"
             alt="Urban Beauty Model"
             className="w-full h-full object-cover opacity-30 grayscale mix-blend-overlay"
-            fetchpriority="high"
+            fetchPriority="high"
             loading="eager"
           />
       </div>
@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
                     src="https://i.postimg.cc/qBFQFvYn/Cabecalho-(Post-para-Instagram-(45))-(1).png" 
                     className="w-full h-full object-cover"
                     alt="Urban Style"
-                    fetchpriority="high"
+                    fetchPriority="high"
                     loading="eager"
                     animate={{ 
                         filter: ["grayscale(100%)", "grayscale(0%)", "grayscale(100%)"],
