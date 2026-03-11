@@ -24,7 +24,7 @@ const Services: React.FC<ServicesProps> = ({ onServiceClick }) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="columns-1 md:columns-2 lg:columns-4 gap-8">
           {SERVICES.map((service, index) => (
             <motion.div
               key={service.id}
@@ -32,31 +32,30 @@ const Services: React.FC<ServicesProps> = ({ onServiceClick }) => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              /* Alterado h-[450px] para h-[350px] md:h-[450px] para diminuir no mobile */
-              className="group relative h-[350px] md:h-[450px] cursor-pointer"
+              className="group relative cursor-pointer break-inside-avoid mb-8"
               onClick={() => onServiceClick && onServiceClick(service.id)}
             >
               {/* Card Container */}
               <div className="absolute inset-0 bg-gray-800 transform transition-transform duration-300 group-hover:-translate-y-2 group-hover:-translate-x-2 border border-white/10 z-0"></div>
               
               <motion.div 
-                className="absolute inset-0 z-10 overflow-hidden bg-black border border-white/5"
+                className="relative z-10 overflow-hidden bg-black border border-white/5"
                 whileInView={{ borderColor: '#E14E72' }}
                 viewport={{ amount: 0.6 }}
               >
                 <motion.img 
                   src={service.image} 
                   alt={service.title} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto block relative z-10"
                   loading="lazy"
-                  initial={{ opacity: 0.6, grayscale: 1, scale: 1 }}
-                  whileInView={{ opacity: 1, grayscale: 0, scale: 1.1 }}
+                  initial={{ opacity: 0.6, grayscale: 1 }}
+                  whileInView={{ opacity: 1, grayscale: 0 }}
                   viewport={{ amount: 0.6 }}
                   transition={{ duration: 0.7 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-20 pointer-events-none" />
                 
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                <div className="absolute inset-0 p-6 flex flex-col justify-end z-30 pointer-events-none">
                   <motion.h3 
                     className="font-black text-2xl text-white mb-2 uppercase leading-none"
                     initial={{ y: 0 }}

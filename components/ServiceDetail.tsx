@@ -105,9 +105,9 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
             <div className="absolute top-4 left-4 w-full h-full border-2 border-brand-pink/30 transform translate-x-4 translate-y-4 hidden md:block"></div>
             
             {/* Carousel Container */}
-            <div className="relative aspect-video md:aspect-[3/4] overflow-hidden border border-white/10 bg-[#1a1a1a] group rounded-sm cursor-grab active:cursor-grabbing">
+            <div className="relative w-full overflow-hidden group cursor-grab active:cursor-grabbing">
                 <motion.div
-                    className="flex h-full"
+                    className="flex items-start"
                     animate={{ x: `-${imgIndex * 100}%` }}
                     transition={{ type: "spring", stiffness: 200, damping: 25 }}
                     drag="x"
@@ -125,41 +125,48 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
                         }
                     }}
                 >
-                    {images.map((img, idx) => (
+                    {images.map((img, idx) => {
+                        const isActive = idx === imgIndex;
+                        return (
                         <div 
                             key={idx} 
-                            className="w-full h-full flex-shrink-0 relative cursor-pointer"
+                            className="w-full flex-shrink-0 relative cursor-pointer border border-white/10 rounded-sm overflow-hidden"
                             onClick={() => handleImageClick(idx)}
                         >
                             <motion.img 
                                 src={img} 
                                 alt={`${service.title} ${idx + 1}`} 
-                                className="w-full h-full object-cover pointer-events-none"
+                                className="w-full h-auto block pointer-events-none"
                                 loading="lazy"
                                 animate={{ 
-                                    filter: idx === imgIndex ? "grayscale(0%)" : "grayscale(100%)",
-                                    scale: idx === imgIndex ? 1 : 1.05
+                                    filter: isActive ? "grayscale(0%) brightness(1)" : "grayscale(80%) brightness(0.5)",
+                                    opacity: isActive ? 1 : 0.6
                                 }}
                                 transition={{ duration: 0.6, ease: "easeOut" }}
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-60"></div>
-                        </div>
-                    ))}
-                </motion.div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-60 pointer-events-none"></div>
+                            
+                            {/* Image Counter */}
+                            {images.length > 1 && (
+                                <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full z-30 pointer-events-none border border-white/10">
+                                    {idx + 1} / {images.length}
+                                </div>
+                            )}
 
-                {/* Navigation Arrows Removed */}
-                
-                {/* Dots Indicator */}
-                {images.length > 1 && (
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                        {images.map((_, idx) => (
-                            <div 
-                                key={idx} 
-                                className={`w-2 h-2 rounded-full transition-colors ${idx === imgIndex ? 'bg-brand-pink' : 'bg-white/30'}`}
-                            />
-                        ))}
-                    </div>
-                )}
+                            {/* Dots Indicator */}
+                            {images.length > 1 && (
+                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10 pointer-events-none">
+                                    {images.map((_, dotIdx) => (
+                                        <div 
+                                            key={dotIdx} 
+                                            className={`w-2 h-2 rounded-full transition-colors ${dotIdx === idx ? 'bg-brand-pink' : 'bg-white/30'}`}
+                                        />
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    )})}
+                </motion.div>
             </div>
           </motion.div>
 

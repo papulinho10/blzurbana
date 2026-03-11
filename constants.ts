@@ -53,13 +53,11 @@ export const SERVICES: Service[] = [
       "Terapia Capilar e Hidratação",
       "Finalização Premium"
     ],
-    image: "https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=1000&auto=format&fit=crop",
+    image: "https://i.postimg.cc/PxqwYSzX/Whats-App-Image-2026-01-17-at-00-58-36-(1).jpg",
     galleryImages: [
-      "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000&auto=format&fit=crop",
+      "https://i.postimg.cc/PxqwYSzX/Whats-App-Image-2026-01-17-at-00-58-36-(1).jpg",
+      "https://i.postimg.cc/HkxVk6Hs/Whats-App-Image-2026-02-12-at-20-26-59-(17).jpg",
+      "https://i.postimg.cc/zvzqPfGf/servicos-capilares-foto-5.jpg"
     ],
     collaborators: [
       {
@@ -99,11 +97,13 @@ export const SERVICES: Service[] = [
       "Pele Blindada",
       "Aplicação de Cílios"
     ],
-    image: "https://images.unsplash.com/photo-1487412947132-28a5b7596640?q=80&w=1000&auto=format&fit=crop",
+    image: "https://i.postimg.cc/7hZynQKn/Whats-App-Image-2026-02-12-at-20-26-59-(7).jpg",
     galleryImages: [
-      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1503236823255-943675dbee22?q=80&w=1000&auto=format&fit=crop",
+      "https://i.postimg.cc/7hZynQKn/Whats-App-Image-2026-02-12-at-20-26-59-(7).jpg",
+      "https://i.postimg.cc/RV8zwdKV/Whats-App-Image-2026-01-17-at-00-58-35-(3).jpg",
+      "https://i.postimg.cc/vH4J8nkd/Whats-App-Image-2026-01-17-at-00-58-33-(1).jpg",
+      "https://i.postimg.cc/FK48xBKq/Whats-App-Image-2026-01-17-at-00-58-38.jpg",
+      "https://i.postimg.cc/qqh1rsRX/maquiagem-profissional-foto-2.jpg"
     ],
     collaborators: [
       {
@@ -143,11 +143,11 @@ export const SERVICES: Service[] = [
       "Nail Art Personalizada",
       "Spa dos Pés"
     ],
-    image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1000&auto=format&fit=crop",
+    image: "https://i.postimg.cc/PJ9Fv69n/manicure-foto-1.jpg",
     galleryImages: [
-      "https://images.unsplash.com/photo-1632515904838-8e6d2a71d798?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000&auto=format&fit=crop",
+      "https://i.postimg.cc/PJ9Fv69n/manicure-foto-1.jpg",
+      "https://i.postimg.cc/X7BP6bB7/manicure-foto-2.jpg",
+      "https://i.postimg.cc/VNmZt0GL/manicure-foto-3.jpg"
     ],
     collaborators: [
       {
@@ -171,11 +171,10 @@ export const SERVICES: Service[] = [
       "Hidratação Profunda",
       "Massagem Facial Relaxante"
     ],
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1000&auto=format&fit=crop",
+    image: "https://i.postimg.cc/bNbjHbT5/limpeza-de-pele-foto-1.jpg",
     galleryImages: [
-      "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=1000&auto=format&fit=crop",
+      "https://i.postimg.cc/bNbjHbT5/limpeza-de-pele-foto-1.jpg",
+      "https://i.postimg.cc/W4xnnDS7/file.png"
     ],
     collaborators: [
       {
