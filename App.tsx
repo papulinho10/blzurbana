@@ -6,7 +6,6 @@ import Offer from './components/Offer';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import Gallery from './components/Gallery';
-import About from './components/About';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
@@ -52,7 +51,6 @@ function App() {
             <Benefits />
             <Offer />
             <Services onServiceClick={handleServiceSelect} />
-            <About />
             <Gallery />
             <ContactStrip />
             <Testimonials />

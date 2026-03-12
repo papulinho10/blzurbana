@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
               <span className="text-2xl text-brand-pink">URBANA</span>
           </div>
           <p className="text-gray-500 text-sm leading-relaxed mb-6">
-            Não é só um salão. É um manifesto de liberdade e estilo em Gramado.
+            Não é só um salão. É um espaço de liberdade e estilo em Gramado.
           </p>
           <div className="flex gap-4">
             <a href="https://www.instagram.com/blzaurbana_/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 flex items-center justify-center text-white hover:bg-brand-pink hover:text-white transition-all">

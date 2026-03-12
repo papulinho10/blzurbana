@@ -13,9 +13,17 @@ interface ServiceDetailProps {
 const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
   const [imgIndex, setImgIndex] = useState(0);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
   
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 150);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const images = service.galleryImages && service.galleryImages.length > 0 
@@ -84,7 +92,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
     <div className="pt-32 min-h-screen bg-brand-dark pb-20">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Back Button */}
+        {/* Original Static Back Button */}
         <button 
           onClick={onBack}
           className="group flex items-center gap-2 text-gray-400 hover:text-brand-cyan transition-colors mb-8 uppercase text-sm font-bold tracking-widest"
@@ -92,6 +100,22 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
           Voltar ao Menu
         </button>
+
+        {/* Floating Arrow Button (Appears on Scroll) */}
+        <AnimatePresence>
+          {isScrolled && (
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8, x: -20 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              exit={{ opacity: 0, scale: 0.8, x: -20 }}
+              onClick={onBack}
+              className="fixed top-32 left-4 md:left-8 z-50 p-3 md:p-4 bg-brand-dark/90 backdrop-blur-md border border-white/10 rounded-full shadow-lg text-gray-300 hover:text-brand-cyan hover:border-brand-cyan/50 hover:shadow-[0_0_15px_rgba(57,173,221,0.3)] transition-all group"
+              title="Voltar ao Menu"
+            >
+              <ArrowLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
+            </motion.button>
+          )}
+        </AnimatePresence>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-20">
           
