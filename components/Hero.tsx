@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
       {/* Dynamic Image Overlay */}
       <div className="absolute inset-0 z-0 bg-brand-dark">
           <img 
-            src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=2069&auto=format&fit=crop"
+            src="https://i.postimg.cc/LsCy05Dg/interior-completo.avif"
             alt="Urban Beauty Model"
             className="w-full h-full object-cover opacity-20 grayscale"
             fetchPriority="high"
