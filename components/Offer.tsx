@@ -16,7 +16,7 @@ const Offer: React.FC = () => {
         <div className="md:w-1/2 text-white">
           <div className="flex items-center gap-2 text-brand-dark font-black tracking-widest text-sm uppercase mb-4 bg-white/20 w-fit px-4 py-1 backdrop-blur-sm">
             <Star size={16} fill="currentColor" />
-            <span>First Experience</span>
+            <span>Primeira Experiência</span>
           </div>
           
           <h2 className="font-black text-5xl md:text-7xl mb-6 leading-[0.9] uppercase transform -skew-x-2">
@@ -58,7 +58,7 @@ const Offer: React.FC = () => {
             </div>
             {/* Sticker */}
             <div className="absolute -bottom-6 -right-4 md:right-10 bg-brand-yellow text-brand-dark font-black rounded-full w-24 h-24 flex items-center justify-center text-center text-xs rotate-12 shadow-lg z-20">
-                OFFERTA<br/>LIMITADA
+                OFERTA<br/>LIMITADA
             </div>
         </div>
 

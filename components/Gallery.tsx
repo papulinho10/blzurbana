@@ -119,7 +119,7 @@ const Gallery: React.FC = () => {
         <div className="flex flex-col items-center text-center mb-12">
             <h2 className="font-black text-4xl md:text-5xl text-white uppercase mb-4">
               {activeTab === 'works' ? 'Nosso ' : 'Nosso '}
-              <span className="text-brand-pink">{activeTab === 'works' ? 'Portfolio' : 'Espaço'}</span>
+              <span className="text-brand-pink">{activeTab === 'works' ? 'Portfólio' : 'Espaço'}</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-brand-purple to-brand-cyan mb-8"></div>
             
@@ -204,7 +204,7 @@ const Gallery: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                    <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                       <span className="text-brand-yellow font-bold text-xs uppercase tracking-widest block mb-1">
-                        {activeTab === 'works' ? 'Beleza Urbana' : 'Experience'}
+                        {activeTab === 'works' ? 'Beleza Urbana' : 'Experiência'}
                       </span>
                    </div>
                 </div>

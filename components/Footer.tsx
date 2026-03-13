@@ -94,7 +94,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/5 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-gray-600 text-xs font-bold uppercase tracking-wider">
-        <p>&copy; {new Date().getFullYear()} Beleza Urbana. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Beleza Urbana. Todos os direitos reservados.</p>
         <p className="mt-2 md:mt-0">Dinamismo • Diversidade • União</p>
       </div>
     </footer>

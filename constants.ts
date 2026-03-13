@@ -23,7 +23,7 @@ export const BENEFITS: Benefit[] = [
   },
   {
     id: 2,
-    title: "Alta Estima",
+    title: "Autoestima",
     description: "Mais que estética, um movimento para você se amar do jeito que é.",
     icon: Heart,
   },
