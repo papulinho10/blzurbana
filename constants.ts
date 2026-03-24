@@ -75,14 +75,6 @@ export const SERVICES: Service[] = [
         image: "https://i.postimg.cc/pds7JVLF/profissional-capilares-2-(1).avif",
         instagramHandle: "@eumarimelo",
         instagramLink: "https://www.instagram.com/eumarimelo/"
-      },
-      {
-        id: 3,
-        name: "Natiele",
-        role: "Hair Stylist",
-        image: "https://i.postimg.cc/63DMM8J2/profissional-capilares-3.avif",
-        instagramHandle: "@hairbynatiele",
-        instagramLink: "https://www.instagram.com/hairbynatiele/"
       }
     ]
   },
@@ -129,6 +121,14 @@ export const SERVICES: Service[] = [
         image: "https://i.postimg.cc/d1QHhb24/profissional-capilares-1.avif",
         instagramHandle: "@dwandrade",
         instagramLink: "https://instagram.com/dwandrade/"
+      },
+      {
+        id: 9,
+        name: "Diened",
+        role: "Makeup Artist",
+        image: "https://i.postimg.cc/pdrNM7Cy/640458244-18349365037237488-6493662517634717829-n.jpg",
+        instagramHandle: "@distudierbeauty",
+        instagramLink: "https://www.instagram.com/distudierbeauty?igsh=MXVwc3hmYnM0anR6bg%3D%3D"
       }
     ]
   },
@@ -136,10 +136,10 @@ export const SERVICES: Service[] = [
     id: 3,
     title: "Nail Design",
     description: "Cuidados completos para mãos e pés, nail art personalizada e esmaltação profissional.",
-    fullDescription: "Suas unhas são telas em branco e nós somos os artistas. Oferecemos desde a manicure clássica impecável até alongamentos em fibra e gel com nail arts exclusivas. Utilizamos materiais esterilizados e esmaltes hipoalergênicos de longa duração.",
+    fullDescription: "Suas unhas são telas em branco e nós somos os artistas. Oferecemos desde a manicure clássica impecável até alongamentos em acrílico com nail arts exclusivas. Utilizamos materiais esterilizados e esmaltes hipoalergênicos de longa duração.",
     features: [
       "Manicure e Pedicure",
-      "Alongamento em Fibra e Gel",
+      "Alongamento em Acrílico",
       "Nail Art Personalizada",
       "Spa dos Pés"
     ],
@@ -182,8 +182,8 @@ export const SERVICES: Service[] = [
         name: "Natiele",
         role: "Esteticista",
         image: "https://i.postimg.cc/63DMM8J2/profissional-capilares-3.avif",
-        instagramHandle: "@hairbynatiele",
-        instagramLink: "https://www.instagram.com/hairbynatiele/"
+        instagramHandle: "@limpezadepele_nf",
+        instagramLink: "https://www.instagram.com/limpezadepele_nf/"
       }
     ]
   },
@@ -218,11 +218,6 @@ export const FAQ_ITEMS: FaqItem[] = [
     id: 1,
     question: "É necessário agendar horário com antecedência?",
     answer: "Para garantir que você viva a experiência Beleza Urbana completa, trabalhamos preferencialmente com horários agendados. Isso nos permite preparar o ambiente, personalizar seu atendimento e dedicar 100% da nossa atenção à sua transformação, sem pressa e com a exclusividade que você merece.",
-  },
-  {
-    id: 2,
-    question: "Vocês têm especialistas em cabelos cacheados e crespos?",
-    answer: "Absolutamente! Somos referência em valorização da beleza natural em Gramado. Nossa equipe domina técnicas avançadas de corte a seco, fitagem e tratamentos específicos para todas as curvaturas. Aqui, não alisamos sua identidade; nós a empoderamos com cortes que dão vida e movimento aos seus fios.",
   },
   {
     id: 3,

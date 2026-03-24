@@ -140,10 +140,10 @@ const Services: React.FC<ServicesProps> = ({ onServiceClick }) => {
                             >
                                 <Coffee size={20} />
                             </motion.div>
-                            <h3 className="text-2xl font-black text-white uppercase">Bar & Lancheria <span className="text-brand-purple">Exclusivos</span></h3>
+                            <h3 className="text-2xl font-black text-white uppercase">Bar <span className="text-brand-purple">Exclusivo</span></h3>
                         </div>
                         <p className="text-gray-400 leading-relaxed font-medium">
-                            Relaxe em nosso bar enquanto cuida da sua beleza! Um ambiente descontraído com neon vibrante, onde servimos drinks especiais, águas, refrigerantes e lanches deliciosos para tornar sua experiência ainda mais prazerosa.
+                            Relaxe em nosso bar enquanto cuida da sua beleza! Um ambiente descontraído com neon vibrante, onde servimos drinks especiais, águas e refrigerantes para tornar sua experiência ainda mais prazerosa.
                         </p>
                     </div>
                 </motion.div>
