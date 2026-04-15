@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from './ui/Button';
-import { WHATSAPP_LINK } from '../constants';
+import { OFFER_WHATSAPP_LINK } from '../constants';
 import { Timer, Star } from 'lucide-react';
 
 const Offer: React.FC = () => {
@@ -30,7 +30,7 @@ const Offer: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+             <a href={OFFER_WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
               <Button className="bg-brand-dark text-white hover:bg-white hover:text-brand-pink shadow-none border-2 border-transparent hover:border-brand-dark">
                   Resgatar Desconto
               </Button>

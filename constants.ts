@@ -4,6 +4,7 @@ import { Service, Testimonial, Benefit, FaqItem } from './types';
 // Updated Contact Info
 export const WHATSAPP_NUMBER = "5554999541257"; 
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Olá! Gostaria de agendar um horário e viver a experiência Beleza Urbana.`;
+export const OFFER_WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Olá! Gostaria de resgatar o cupom de *15%* de desconto na minha *primeira visita* e viver a experiência Beleza Urbana.`;
 export const INSTAGRAM_LINK = "https://www.instagram.com/blzaurbana_/";
 export const ADDRESS = "Avelino Alves de Moraes, 88 - Centro, Gramado - RS, 95670-000";
 export const GOOGLE_MAPS_LINK = "https://www.google.com/maps/search/?api=1&query=Avelino+Alves+de+Moraes,+88+-+Centro,+Gramado+-+RS,+95670-000";
@@ -45,12 +46,12 @@ export const SERVICES: Service[] = [
   {
     id: 1,
     title: "Cuidados Capilares",
-    description: "Cortes, coloração, tratamentos capilares e cuidados completos para realçar sua beleza natural.",
-    fullDescription: "Não é apenas tratar o cabelo, é revitalizar sua identidade. Nossos especialistas em tricologia e visagismo oferecem desde cortes modernos até cronogramas capilares completos. Utilizamos produtos de alta performance que garantem saúde, brilho e movimento para todos os tipos de fios.",
+    description: "Tratamentos capilares e cuidados completos para realçar sua beleza natural.",
+    fullDescription: "Não é apenas tratar o cabelo, é revitalizar sua identidade. Nossos especialistas em tricologia oferecem cronogramas capilares completos e tratamentos profundos. Utilizamos produtos de alta performance que garantem saúde, brilho e movimento para todos os tipos de fios.",
     features: [
-      "Cortes com Visagismo",
-      "Coloração e Mechas Criativas",
-      "Terapia Capilar e Hidratação",
+      "Terapia Capilar",
+      "Hidratação Profunda",
+      "Cronograma Capilar",
       "Finalização Premium"
     ],
     image: "https://i.postimg.cc/PxqwYSzX/Whats-App-Image-2026-01-17-at-00-58-36-(1).jpg",
@@ -124,7 +125,7 @@ export const SERVICES: Service[] = [
       },
       {
         id: 9,
-        name: "Diened",
+        name: "Dienedy",
         role: "Makeup Artist",
         image: "https://i.postimg.cc/pdrNM7Cy/640458244-18349365037237488-6493662517634717829-n.jpg",
         instagramHandle: "@distudierbeauty",
@@ -187,6 +188,68 @@ export const SERVICES: Service[] = [
       }
     ]
   },
+  {
+    id: 5,
+    title: "Sobrancelhas & Cílios",
+    description: "Realce seu olhar com design de sobrancelhas, lash lifting e brow lamination.",
+    fullDescription: "Especialistas em valorizar o seu olhar. Oferecemos técnicas modernas como Lash Lifting para curvar e alongar os cílios naturais, e Brow Lamination para sobrancelhas volumosas e alinhadas, além do design clássico perfeito para o seu rosto.",
+    features: [
+      "Design de Sobrancelha",
+      "Lash Lifting",
+      "Brow Lamination",
+      "Coloração de Fios"
+    ],
+    image: "https://picsum.photos/seed/sobrancelhas/800/600",
+    galleryImages: [
+      "https://picsum.photos/seed/sobrancelhas/800/600"
+    ],
+    collaborators: []
+  },
+  {
+    id: 6,
+    title: "Barbearia",
+    description: "Cortes masculinos, barba e cuidados com estilo e precisão.",
+    fullDescription: "Um espaço dedicado ao estilo masculino. Oferecemos cortes modernos e clássicos, além de design de barba com toalha quente e produtos premium para um acabamento impecável.",
+    features: [
+      "Corte Masculino",
+      "Design de Barba",
+      "Acabamento com Toalha Quente",
+      "Hidratação Capilar"
+    ],
+    image: "https://i.postimg.cc/NMxmdVKp/yiutv.jpg",
+    galleryImages: [
+      "https://i.postimg.cc/NMxmdVKp/yiutv.jpg",
+      "https://i.postimg.cc/x1bmwqk1/hjf.jpg",
+      "https://i.postimg.cc/6QJZtwRP/hjkgv.jpg",
+      "https://i.postimg.cc/k5Qb5ZvG/rsex.jpg"
+    ],
+    collaborators: [
+      {
+        id: 10,
+        name: "Otávio",
+        role: "Barber",
+        image: "https://picsum.photos/seed/otavio/400/400",
+        instagramHandle: "@otaviorigol_",
+        instagramLink: "https://www.instagram.com/otaviorigol_/"
+      },
+      {
+        id: 11,
+        name: "Davi",
+        role: "Barber",
+        image: "https://picsum.photos/seed/davi/400/400",
+        instagramHandle: "@odavi_moraes",
+        instagramLink: "https://www.instagram.com/odavi_moraes/"
+      },
+      {
+        id: 12,
+        name: "Angélica",
+        role: "Barber",
+        image: "https://picsum.photos/seed/angelica/400/400",
+        instagramHandle: "@angell.barber_",
+        instagramLink: "https://www.instagram.com/angell.barber_/"
+      }
+    ]
+  }
 ];
 
 export const TESTIMONIALS: Testimonial[] = [

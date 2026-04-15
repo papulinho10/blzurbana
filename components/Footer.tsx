@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Facebook, MapPin, Phone, Clock } from 'lucide-react';
+import { Instagram, MapPin, Phone, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Button from './ui/Button';
 import { WHATSAPP_LINK, NAV_LINKS } from '../constants';
@@ -33,11 +33,6 @@ const Footer: React.FC = () => {
             <a href="https://www.instagram.com/blzaurbana_/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 flex items-center justify-center text-white hover:bg-brand-pink hover:text-white transition-all">
                 <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}>
                     <Instagram size={20} />
-                </motion.div>
-            </a>
-            <a href="#" className="w-10 h-10 bg-white/5 flex items-center justify-center text-white hover:bg-brand-cyan hover:text-black transition-all">
-                <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
-                    <Facebook size={20} />
                 </motion.div>
             </a>
           </div>
