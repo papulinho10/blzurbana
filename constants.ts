@@ -199,9 +199,9 @@ export const SERVICES: Service[] = [
       "Brow Lamination",
       "Coloração de Fios"
     ],
-    image: "https://picsum.photos/seed/sobrancelhas/800/600",
+    image: "https://i.postimg.cc/bNjkzdC4/dfngfgh.jpg",
     galleryImages: [
-      "https://picsum.photos/seed/sobrancelhas/800/600"
+      "https://i.postimg.cc/bNjkzdC4/dfngfgh.jpg"
     ],
     collaborators: []
   },
