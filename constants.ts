@@ -45,7 +45,7 @@ export const BENEFITS: Benefit[] = [
 export const SERVICES: Service[] = [
   {
     id: 1,
-    title: "Cuidados Capilares",
+    title: "Cor e Corte",
     description: "Tratamentos capilares e cuidados completos para realçar sua beleza natural.",
     fullDescription: "Não é apenas tratar o cabelo, é revitalizar sua identidade. Nossos especialistas em tricologia oferecem cronogramas capilares completos e tratamentos profundos. Utilizamos produtos de alta performance que garantem saúde, brilho e movimento para todos os tipos de fios.",
     features: [
@@ -54,7 +54,7 @@ export const SERVICES: Service[] = [
       "Cronograma Capilar",
       "Finalização Premium"
     ],
-    image: "https://i.postimg.cc/PxqwYSzX/Whats-App-Image-2026-01-17-at-00-58-36-(1).jpg",
+    image: "https://i.postimg.cc/TYPxsdjX/78r87.jpg",
     galleryImages: [
       "https://i.postimg.cc/PxqwYSzX/Whats-App-Image-2026-01-17-at-00-58-36-(1).jpg",
       "https://i.postimg.cc/HkxVk6Hs/Whats-App-Image-2026-02-12-at-20-26-59-(17).jpg",
@@ -199,7 +199,7 @@ export const SERVICES: Service[] = [
       "Brow Lamination",
       "Coloração de Fios"
     ],
-    image: "https://i.postimg.cc/bNjkzdC4/dfngfgh.jpg",
+    image: "https://i.postimg.cc/0jbwjds9/ASDFASD.jpg",
     galleryImages: [
       "https://i.postimg.cc/bNjkzdC4/dfngfgh.jpg"
     ],
