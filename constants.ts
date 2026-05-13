@@ -216,9 +216,9 @@ export const SERVICES: Service[] = [
       "Acabamento com Toalha Quente",
       "Hidratação Capilar"
     ],
-    image: "https://i.postimg.cc/NMxmdVKp/yiutv.jpg",
+    image: "https://i.postimg.cc/nhgQzwVn/2.jpg",
     galleryImages: [
-      "https://i.postimg.cc/NMxmdVKp/yiutv.jpg",
+      "https://i.postimg.cc/nhgQzwVn/2.jpg",
       "https://i.postimg.cc/x1bmwqk1/hjf.jpg",
       "https://i.postimg.cc/6QJZtwRP/hjkgv.jpg",
       "https://i.postimg.cc/k5Qb5ZvG/rsex.jpg"

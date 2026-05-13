@@ -39,27 +39,29 @@ const Services: React.FC<ServicesProps> = ({ onServiceClick }) => {
               <div className="absolute inset-0 bg-gray-800 transform transition-transform duration-300 group-hover:-translate-y-2 group-hover:-translate-x-2 border border-white/10 z-0"></div>
               
               <motion.div 
-                className="relative z-10 overflow-hidden bg-black border border-white/5"
+                className="relative z-10 overflow-hidden bg-black border border-white/5 h-[500px] flex flex-col"
                 whileInView={{ borderColor: '#E14E72' }}
                 viewport={{ amount: 0.6 }}
               >
-                <motion.img 
-                  src={service.image} 
-                  alt={service.title} 
-                  className="w-full h-auto block relative z-10"
-                  loading="lazy"
-                  initial={{ opacity: 0.6, grayscale: 1 }}
-                  whileInView={{ opacity: 1, grayscale: 0 }}
-                  viewport={{ amount: 0.6 }}
-                  transition={{ duration: 0.7 }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-20 pointer-events-none" />
+                <div className="relative h-[280px]">
+                  <motion.img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover object-top block relative z-10"
+                    loading="lazy"
+                    initial={{ opacity: 0.6, grayscale: 1 }}
+                    whileInView={{ opacity: 1, grayscale: 0 }}
+                    viewport={{ amount: 0.6 }}
+                    transition={{ duration: 0.7 }}
+                  />
+                  <div className="absolute -bottom-1 left-0 right-0 h-24 bg-gradient-to-t from-black via-black/80 to-transparent z-20 pointer-events-none" />
+                </div>
                 
-                <div className="absolute inset-0 p-6 flex flex-col justify-end z-30 pointer-events-none">
+                <div className="relative z-30 px-6 pb-6 pt-2 flex flex-col justify-start flex-1 bg-black pointer-events-none">
                   <motion.h3 
                     className="font-black text-2xl text-white mb-2 uppercase leading-none"
                     initial={{ y: 0 }}
-                    whileInView={{ y: -20 }}
+                    whileInView={{ y: -10 }}
                     viewport={{ amount: 0.6 }}
                     transition={{ duration: 0.5 }}
                   >
